@@ -10,9 +10,4 @@ class Tracker
     self.get(endpoint)
   end
 
-  def last_track
-  	base_uri 'https://198.74.52.26/map/map-json.php'
-  	current = JSON.parse(open(base_uri).read)
-  end
-
 end
