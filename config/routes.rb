@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   post 'tracker' => 'miami_dade_transit#tracker_new'
   get 'tracker' => 'tracker#live'
+  get 'tracker/display' => 'tracker#display'
 
   get 'api/trolley/routes' => 'miami_city_transit#routes'
   get 'api/trolley/stops' => 'miami_city_transit#stops'

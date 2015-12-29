@@ -15,4 +15,8 @@ class TrackerController < ApplicationController
     end
   end
 
+  def display
+    
+  end
+
 end
