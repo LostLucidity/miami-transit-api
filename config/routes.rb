@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :bus_reports
+  resources :bus_reports do
+    collection do
+      get 'map'
+    end
+  end
 
   get 'pages/index'
 

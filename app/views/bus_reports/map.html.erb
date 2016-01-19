@@ -1,0 +1,57 @@
+<%= @bus_reports.inspect %>
+<% content_for :head do %>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.12.3/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.12.3/mapbox-gl.css' rel='stylesheet' />
+	<style>
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+<% end %>
+<div id='map'></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoibG9zdGx1Y2lkaXR5IiwiYSI6ImNpamtvdTlmdDAzM2p1NG01NDdsa3FyeWcifQ.WlpchXBWxkROxCB3IBueug';
+
+	var markers = {
+	    "type": "FeatureCollection",
+	    "features": [ 
+	<% @bus_reports.each do |br| %>
+	    {
+	    	"type": "Feature",
+	        "properties": {
+	            "description": "x",
+	            "marker-symbol": "bus"
+	        },
+	        "geometry": {
+	            "type": "Point",
+	            "coordinates": [<%= br.long %>, <%= br.lat %>]
+	        },
+	      },
+	    <% end %>
+	    ]
+	  };
+	var map = new mapboxgl.Map({
+	    container: 'map',
+	    style: 'mapbox://styles/mapbox/streets-v8',
+	    center: [-80.19, 25.80],
+	    zoom: 13
+	});
+
+	map.on('style.load', function () {
+    // Add marker data as a new GeoJSON source.
+    map.addSource("markers", {
+        "type": "geojson",
+        "data": markers
+    });
+
+    // Add a layer showing the markers.
+    map.addLayer({
+        "id": "markers",
+        "interactive": true,
+        "type": "symbol",
+        "source": "markers",
+        "layout": {
+        "icon-image": "{marker-symbol}-15"
+        }
+    });
+	});
+</script>
