@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bus Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>Bustime</th>
+      <th>Speed</th>
+      <th>Busid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bus_reports.each do |bus_report| %>
+      <tr>
+        <td><%= bus_report.lat %></td>
+        <td><%= bus_report.long %></td>
+        <td><%= bus_report.bustime %></td>
+        <td><%= bus_report.speed %></td>
+        <td><%= bus_report.busid %></td>
+        <td><%= link_to 'Show', bus_report %></td>
+        <td><%= link_to 'Edit', edit_bus_report_path(bus_report) %></td>
+        <td><%= link_to 'Destroy', bus_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bus report', new_bus_report_path %>

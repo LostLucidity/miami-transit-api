@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :bus_reports
+
   get 'pages/index'
 
   root :to => redirect('http://julianbonilla.github.io/miami-transit-api-docs/')
@@ -8,9 +10,11 @@ Rails.application.routes.draw do
   get 'bus/:id' => 'miami_dade_transit#bus'
   get 'nearby' => 'miami_dade_transit#nearby'
 
-  post 'tracker' => 'miami_dade_transit#tracker_new'
-  get 'tracker' => 'tracker#live'
-  get 'tracker/display' => 'tracker#display'
+  post  'tracker' => 'miami_dade_transit#tracker_new'
+  get   'tracker' => 'tracker#live'
+  get   'tracker/display' => 'tracker#display'
+  get   'entry' => 'tracker#new'
+  post  'entry' => 'tracker#create'
 
   get 'api/trolley/routes' => 'miami_city_transit#routes'
   get 'api/trolley/stops' => 'miami_city_transit#stops'

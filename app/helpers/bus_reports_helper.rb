@@ -1,0 +1,2 @@
+module BusReportsHelper
+end

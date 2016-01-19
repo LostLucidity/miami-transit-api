@@ -1,7 +1,6 @@
 class TrackerController < ApplicationController
   before_action :normalize_params!
 
-
   def live
     @tracker = Tracker.live
 
@@ -18,11 +17,14 @@ class TrackerController < ApplicationController
   def display
     @tracker = Tracker.live
     props = @tracker['features'][0]['properties']
-    @latitude   = props['lat' ]
-    @longitude  = props['lon' ]
-    @bustime    = props['bust ime'] 
-    @speed      = props['spee d']
-    @busid      = props['BusI D']
+    @latitude   = props['lat']
+    @longitude  = props['lon']
+    @bustime    = props['bustime'] 
+    @speed      = props['speed']
+    @busid      = props['BusID']
+  end
+
+  def create
   end
 
 end

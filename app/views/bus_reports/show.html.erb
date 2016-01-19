@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @bus_report.lat %>
+</p>
+
+<p>
+  <strong>Long:</strong>
+  <%= @bus_report.long %>
+</p>
+
+<p>
+  <strong>Bustime:</strong>
+  <%= @bus_report.bustime %>
+</p>
+
+<p>
+  <strong>Speed:</strong>
+  <%= @bus_report.speed %>
+</p>
+
+<p>
+  <strong>Busid:</strong>
+  <%= @bus_report.busid %>
+</p>
+
+<%= link_to 'Edit', edit_bus_report_path(@bus_report) %> |
+<%= link_to 'Back', bus_reports_path %>

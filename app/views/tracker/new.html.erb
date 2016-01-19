@@ -1,0 +1,24 @@
+<h1>GPS entry<h1>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_tag("/entry", method: "post") do %>
+		
+			<%= label_tag(:latitude, "Latitude") %>
+			<%= text_field_tag(:latitude) %>
+
+			<%= label_tag(:longitude, "Longitude") %>
+			<%= text_field_tag(:longitude) %>
+
+			<%= label_tag(:bustime, "Bustime") %>
+			<%= text_field_tag(:bustime) %>
+
+			<%= label_tag(:speed, "Speed") %>
+			<%= text_field_tag(:speed) %>
+
+			<%= label_tag(:busid, "BusID") %>
+			<%= text_field_tag(:busid) %>
+
+			<%= submit_tag("Submit") %>
+		<% end %>
+	</div>
+</div>

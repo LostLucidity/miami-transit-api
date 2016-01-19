@@ -10,4 +10,8 @@ class Tracker
     self.get(endpoint)
   end
 
+  def create
+    render 'new'
+  end 
+
 end
